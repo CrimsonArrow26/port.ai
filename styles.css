@@ -190,8 +190,8 @@ body::after {
 /* Badge over Spline (top-right) */
 .hero-badge {
   position: absolute;
-  right: 14px;
-  bottom: 22px;
+  right: 11px;
+  bottom: 21px;
   z-index: 3;
   padding: 8px 14px;
   background: rgba(255,255,255,0.85);
@@ -202,6 +202,23 @@ body::after {
   color: var(--ink);
   font-size: 12px;
   letter-spacing: .02em;
+}
+
+/* Drag hint over Spline (top-right) */
+.hero-drag-hint {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  z-index: 3;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Hero CTA over Spline */
@@ -242,6 +259,35 @@ body::after {
 
 /* Hide carousel on desktop */
 .carousel-wrap-mobile { display: none; }
+
+/* Banner Styles */
+.banner {
+  background: linear-gradient(135deg, #000 0%, #333 100%);
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid #444;
+}
+
+.banner-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.banner-text {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  animation: bannerPulse 2s ease-in-out infinite;
+}
+
+@keyframes bannerPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
 
 /* Desktop navbar styling */
 .nav__brand-name { display: inline-block; }
