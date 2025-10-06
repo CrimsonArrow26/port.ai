@@ -208,13 +208,13 @@ body::after {
 .hero-cta-row {
   position: absolute;
   left: 98px; /* align with hero-badge spacing */
-  bottom: 200px; /* same baseline as hero-badge */
+  bottom: 230px; /* same baseline as hero-badge */
   top: auto;
   right: auto;
   display: block;
   text-align: left;
   pointer-events: none;
-  z-index: 999;
+  z-index: 9;
 }
 .hero-cta {
   pointer-events: auto;
@@ -233,12 +233,278 @@ body::after {
   box-shadow: 0 0 0 1px rgba(0,0,0,0.2) inset, 0 10px 30px rgba(0,0,0,0.08);
   transition: transform .2s ease, background .2s ease, color .2s ease;
   backdrop-filter: blur(2px);
-  z-index: 999;
+  z-index: 3;
 }
 .hero-cta:hover { transform: translateY(-2px); background: #0d0d0d; color: #fff; }
 
 
 
+
+/* Hide carousel on desktop */
+.carousel-wrap-mobile { display: none; }
+
+/* Desktop navbar styling */
+.nav__brand-name { display: inline-block; }
+.nav__mobile { display: none; }
+
+/* Hamburger Menu Styles */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.hamburger__line {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transition: all 0.3s ease;
+  transform-origin: 1px;
+}
+
+.hamburger.active .hamburger__line:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.hamburger.active .hamburger__line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.hamburger.active .hamburger__line:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background-color: #f8f8f8;
+  border-left: 2px solid #000;
+  transition: right 0.3s ease;
+  z-index: 9999;
+  padding-top: 0;
+  overflow: hidden;
+}
+
+.mobile-menu__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  z-index: 1;
+}
+
+.mobile-menu__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.mobile-menu__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.mobile-menu__close:hover {
+  background-color: #ddd;
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu__links {
+  list-style: none;
+  padding: 20px 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  min-height: calc(100vh - 80px);
+  background-color: #f8f8f8;
+}
+
+.mobile-menu__link {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu__link:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.mobile-menu__cta {
+  background-color: #000;
+  color: #fff !important;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.mobile-menu__cta:hover {
+  background-color: #333;
+}
+
+/* ReactBits Carousel CSS */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #555;
+  border-radius: 24px;
+  padding: 16px;
+  --outer-r: 24px;
+  --p-distance: 12px;
+}
+
+.carousel-track {
+  display: flex;
+}
+
+.carousel-item {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 1px solid #555;
+  border-radius: calc(var(--outer-r) - var(--p-distance));
+  background-color: #0d0716;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.carousel-item:active {
+  cursor: grabbing;
+}
+
+.carousel-container.round {
+  border: 1px solid #555;
+}
+
+.carousel-item.round {
+  background-color: #0d0716;
+  position: relative;
+  bottom: 0.1em;
+  border: 1px solid #555;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.carousel-item-header.round {
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-indicators-container.round {
+  position: absolute;
+  z-index: 2;
+  bottom: 3em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carousel-indicator.active {
+  background-color: #333333;
+}
+
+.carousel-indicator.inactive {
+  background-color: rgba(51, 51, 51, 0.4);
+}
+
+.carousel-item-header {
+  margin-bottom: 16px;
+  padding: 20px;
+  padding-top: 20px;
+}
+
+.carousel-icon-container {
+  display: flex;
+  height: 28px;
+  width: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.carousel-icon {
+  height: 16px;
+  width: 16px;
+  color: #060010;
+}
+
+.carousel-item-content {
+  padding: 20px;
+  padding-bottom: 20px;
+}
+
+.carousel-item-title {
+  margin-bottom: 4px;
+  font-weight: 900;
+  font-size: 18px;
+  color: #fff;
+}
+
+.carousel-item-description {
+  font-size: 14px;
+  color: #fff;
+}
+
+.carousel-indicators-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.carousel-indicators {
+  margin-top: 16px;
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.carousel-indicator {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 150ms;
+}
+
+.carousel-indicator.active {
+  background-color: #fff;
+}
+
+.carousel-indicator.inactive {
+  background-color: #555;
+}
 
 /* ReactBits CardSwap overrides (from provided CSS) */
 .card-swap-container {
@@ -441,13 +707,150 @@ body { animation: responsiveVars 0s forwards; }
     0% { --cardswap-width: 320px; --cardswap-height: 220px; --feature-right-min-h: 360px; --cta-font-size: 20px; }
     100% { --cardswap-width: 320px; --cardswap-height: 220px; --feature-right-min-h: 360px; --cta-font-size: 20px; }
   }
+  
+  /* Mobile navbar styling */
+  .nav__brand-name { display: inline-block !important; }
+  .nav__center { display: none; }
+  .nav__right { display: none; }
+  .nav__mobile { display: block; }
+  
+  /* Hide Made with PORT.ai on mobile */
+  .hero-badge { display: none !important; }
+  
+  /* Mobile carousel styling */
+  .carousel-wrap-mobile { display: block !important; margin-top: 48px; }
+  .carousel-container { 
+    background: #f8f8f8; 
+    border: 2px solid #000; 
+    border-radius: 24px;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .carousel-track-wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+  .carousel-track { 
+    display: flex; 
+    width: 500%; /* 5 cards * 100% each */
+    transition: transform 0.3s ease;
+    cursor: grab;
+    position: relative;
+    padding: 0 2px; /* Small padding to prevent border bleeding */
+  }
+  .carousel-track:active {
+    cursor: grabbing;
+  }
+  .carousel-item { 
+    background: #fff; 
+    border: 2px solid #000; 
+    border-radius: 12px;
+    padding: 20px;
+    width: 20%; /* 100% / 5 cards = 20% each */
+    height: 200px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+  }
+  .carousel-item-header {
+    margin-bottom: 16px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .carousel-icon-container {
+    display: flex;
+    height: 28px;
+    width: 28px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #000;
+  }
+  .carousel-icon {
+    height: 16px;
+    width: 16px;
+    color: #fff;
+  }
+  .carousel-item-content {
+    padding: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .carousel-item-title { 
+    color: #000; 
+    font-family: 'Russo One', cursive; 
+    font-size: 16px;
+    font-weight: 900;
+    margin: 0;
+    line-height: 1.2;
+    flex-shrink: 0;
+    letter-spacing: 0.05rem;
+  }
+  .carousel-item-description { 
+    color: #333; 
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.4;
+    opacity: 0.9;
+  }
+  .carousel-indicators-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    width: 100%;
+  }
+  .carousel-indicators {
+    display: flex;
+    gap: 12px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  .carousel-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    background-color: transparent;
+    border: 2px solid #ccc;
+  }
+  .carousel-indicator.active { 
+    background-color: #000; 
+    border: 2px solid #000;
+    transform: scale(1.2);
+  }
 }
 
-/* Responsive typography and grid tweaks (apply only on mobile) */
-@media (max-width: 480px) {
-  .feature-frame { grid-template-columns: 1fr; }
-  .triple-guides { grid-template-columns: 1fr; gap: 16px; }
-  .feature-title { font-size: 42px; }
+  /* Responsive typography and grid tweaks (apply only on mobile) */
+  @media (max-width: 480px) {
+    .feature-frame { 
+      grid-template-columns: 1fr; 
+      max-height: 680px;
+      overflow: hidden;
+    }
+    .card-swap-root {
+      top: 40px;
+    }
+    .card-swap-container {
+      right: 60px;
+    }
+    .triple-guides { grid-template-columns: 1fr; gap: 16px; }
+    .feature-title { font-size: 42px; }
   .pricing-title { font-size: 44px; }
   .waitlist-title { font-size: 32px; }
 }
@@ -479,7 +882,7 @@ body { animation: responsiveVars 0s forwards; }
 
 @media (max-width: 900px) {
   .feature-frame { grid-template-columns: 1fr; }
-  .feature-right { min-height: 320px; }
+  .feature-right { min-height: 420px; }
 }
 @media (max-width: 480px) {
   .card-swap-container {
@@ -563,145 +966,3 @@ body { animation: responsiveVars 0s forwards; }
 .footer-links a:hover { text-decoration: underline; }
 .footer-copy { color: #4b4b4b; font-size: 13px; margin-left: 10px; }
 .footer-logo-box { display:inline-flex; width:28px; height:28px; align-items:center; justify-content:center; background:#fff; border:1px solid var(--border); border-radius:8px; box-shadow:0 1px 0 rgba(0,0,0,.06) inset; }
-
-.carousel-container {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #555;
-  border-radius: 24px;
-  padding: 16px;
-  --outer-r: 24px;
-  --p-distance: 12px;
-}
-
-.carousel-track {
-  display: flex;
-}
-
-.carousel-item {
-  position: relative;
-  display: flex;
-  flex-shrink: 0;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  border: 1px solid #555;
-  border-radius: calc(var(--outer-r) - var(--p-distance));
-  background-color: #0d0716;
-  overflow: hidden;
-  cursor: grab;
-}
-
-.carousel-item:active {
-  cursor: grabbing;
-}
-
-.carousel-container.round {
-  border: 1px solid #555;
-}
-
-.carousel-item.round {
-  background-color: #0d0716;
-  position: relative;
-  bottom: 0.1em;
-  border: 1px solid #555;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.carousel-item-header.round {
-  padding: 0;
-  margin: 0;
-}
-
-.carousel-indicators-container.round {
-  position: absolute;
-  z-index: 2;
-  bottom: 3em;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.carousel-indicator.active {
-  background-color: #333333;
-}
-
-.carousel-indicator.inactive {
-  background-color: rgba(51, 51, 51, 0.4);
-}
-
-.carousel-item-header {
-  margin-bottom: 16px;
-  padding: 20px;
-  padding-top: 20px;
-}
-
-.carousel-icon-container {
-  display: flex;
-  height: 28px;
-  width: 28px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: #fff;
-}
-
-.carousel-icon {
-  height: 16px;
-  width: 16px;
-  color: #060010;
-}
-
-.carousel-item-content {
-  padding: 20px;
-  padding-bottom: 20px;
-}
-
-.carousel-item-title {
-  margin-bottom: 4px;
-  font-weight: 900;
-  font-size: 18px;
-  color: #fff;
-}
-
-.carousel-item-description {
-  font-size: 14px;
-  color: #fff;
-}
-
-.carousel-indicators-container {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
-.carousel-indicators {
-  margin-top: 16px;
-  display: flex;
-  width: 150px;
-  justify-content: space-between;
-  padding: 0 32px;
-}
-
-.carousel-indicator {
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 150ms;
-}
-
-.carousel-indicator.active {
-  background-color: #fff;
-}
-
-.carousel-indicator.inactive {
-  background-color: #555;
-}
-
-@media (min-width: 481px) {
-  .carousel-mobile {
-    display: none;
-  }
-}
