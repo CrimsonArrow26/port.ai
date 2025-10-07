@@ -566,22 +566,18 @@
           updateCarousel();
         }
         
-        // Next slide
         function nextSlide() {
           goToSlide(currentIndex + 1);
         }
         
-        // Previous slide
         function prevSlide() {
           goToSlide(currentIndex - 1);
         }
         
-        // Add click handlers to indicators
         indicators.forEach((indicator, index) => {
           indicator.addEventListener('click', () => goToSlide(index));
         });
         
-        // Touch/drag functionality
         let startX = 0;
         let currentX = 0;
         let isDragging = false;
@@ -632,7 +628,6 @@
           }
         });
         
-        // Touch events for mobile
         carouselTrack.addEventListener('touchstart', (e) => {
           isDragging = true;
           startX = e.touches[0].clientX;
@@ -668,14 +663,13 @@
           }
         });
         
-        // Auto-play (optional)
         let autoPlayInterval;
         function startAutoPlay() {
           autoPlayInterval = setInterval(() => {
             if (currentIndex < maxIndex) {
               nextSlide();
             } else {
-              goToSlide(0); // Loop back to start
+              goToSlide(0);
             }
           }, 3000);
         }
@@ -684,17 +678,14 @@
           clearInterval(autoPlayInterval);
         }
         
-        // Start auto-play
         startAutoPlay();
         
-        // Pause on hover
         const carouselContainer = document.querySelector('.carousel-container');
         if (carouselContainer) {
           carouselContainer.addEventListener('mouseenter', stopAutoPlay);
           carouselContainer.addEventListener('mouseleave', startAutoPlay);
         }
         
-        // Initialize
         updateCarousel();
       });
     </script>
