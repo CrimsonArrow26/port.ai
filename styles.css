@@ -724,13 +724,6 @@ body { animation: responsiveVars 0s forwards; }
   .hero-text-mobile { display: block !important; text-align: left; padding: 80px 20px 0; }
   .hero-text-mobile h1 { font-size: 48px; line-height: 1.05; margin: 0 0 14px 0; }
   .hero-text-mobile p { font-family: 'Goldman', cursive; font-size: 20px; margin: 0; }
-}
-@media (max-width: 480px) {
-  body { animation: responsiveVarsSmall 0s forwards; }
-  @keyframes responsiveVarsSmall {
-    0% { --cardswap-width: 320px; --cardswap-height: 220px; --feature-right-min-h: 360px; --cta-font-size: 20px; }
-    100% { --cardswap-width: 320px; --cardswap-height: 220px; --feature-right-min-h: 360px; --cta-font-size: 20px; }
-  }
   
   /* Mobile navbar styling */
   .nav__brand-name { display: inline-block !important; }
@@ -740,6 +733,9 @@ body { animation: responsiveVars 0s forwards; }
   
   /* Hide Made with PORT.ai on mobile */
   .hero-badge { display: none !important; }
+  
+  /* Hide desktop CTA on mobile - we have a mobile-specific one */
+  .hero > .hero-cta-row { display: none !important; }
   
   /* Mobile carousel styling */
   .carousel-wrap-mobile { display: block !important; margin-top: 48px; }
@@ -754,6 +750,39 @@ body { animation: responsiveVars 0s forwards; }
     max-width: 390px;
     margin: 0 auto;
     box-sizing: border-box;
+  }
+  
+  /* Mobile CTA button - positioned below carousel */
+  .hero-cta-row {
+    position: static !important;
+    text-align: center;
+    margin-top: 32px;
+    padding: 0 20px;
+  }
+  
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 28px;
+    border: 3px solid #0d0d0d;
+    border-radius: 14px;
+    background: #fff;
+    color: #0d0d0d;
+    text-decoration: none;
+    letter-spacing: .06em;
+    font-weight: 900;
+    font-size: 20px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.2) inset, 0 10px 30px rgba(0,0,0,0.08);
+    transition: transform .2s ease, background .2s ease, color .2s ease;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .hero-cta:hover { 
+    transform: translateY(-2px); 
+    background: #0d0d0d; 
+    color: #fff; 
   }
   .carousel-track-wrapper {
     overflow: hidden;
@@ -828,7 +857,7 @@ body { animation: responsiveVars 0s forwards; }
     color: #333; 
     font-size: 14px;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.2;
     opacity: 0.9;
   }
   .carousel-indicators-container {
