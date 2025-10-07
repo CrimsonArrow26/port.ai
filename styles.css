@@ -1,23 +1,21 @@
-/* Base reset and tokens */
 :root {
-  --bg: #f4f1ed;            /* warm off-white like reference */
+  --bg: #f4f1ed;
   --ink: #0d0d0d;
   --mute-ink: #616161;
   --border: #dfdbd6;
   --chip: #f0ece7;
   --cta-bg: #0d0d0d;
   --cta-ink: #fff;
-  /* Spline sizing defaults - adjust as needed */
-  --spline-width: 100%;   /* set exact px width */
-  --spline-height: 720px;  /* set exact px height */
-  --spline-offset-x: 0px;  /* shift from left */
-  --spline-offset-y: 0px;  /* shift from top */
+  --spline-width: 100%;
+  --spline-height: 720px;
+  --spline-offset-x: 0px;
+  --spline-offset-y: 0px;
   --spline-radius: 16px;
-  --hero-bottom-pad: 120px; /* space below full-screen hero for next sections */
-  --feature-right-min-h: 520px; /* controls right pane height */
-  --pricing-col-min-h: 420px; /* base height for pricing columns */
-  --pricing-col-min-h-scaled: 520px; /* scaled height for emphasized column */
-  --cta-font-size: 28px; /* hero button size */
+  --hero-bottom-pad: 120px;
+  --feature-right-min-h: 520px;
+  --pricing-col-min-h: 420px;
+  --pricing-col-min-h-scaled: 520px;
+  --cta-font-size: 28px;
 
 }
 
@@ -34,12 +32,10 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Russo One utility */
 .russo {
   font-family: 'Russo One', sans-serif;
 }
 
-/* Layered background: subtle grid + lines/dots via pseudo elements */
 body::before,
 body::after {
   content: "";
@@ -49,7 +45,6 @@ body::after {
   z-index: 0;
 }
 
-/* grid */
 body::before {
   background-image:
     linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
@@ -59,7 +54,6 @@ body::before {
   opacity: .35;
 }
 
-/* mindmap lines + dots approximation */
 body::after {
   background-image:
     radial-gradient(circle at 20% 36%, rgba(0,0,0,.35) 2px, transparent 3px),
@@ -67,7 +61,6 @@ body::after {
     radial-gradient(circle at 84% 28%, rgba(0,0,0,.35) 2px, transparent 3px),
     radial-gradient(circle at 36% 75%, rgba(0,0,0,.45) 3px, transparent 4px),
     radial-gradient(circle at 66% 73%, rgba(0,0,0,.35) 2px, transparent 3px),
-    /* curved lines hinted with wide blurred gradients */
     radial-gradient(1200px 400px at 50% 40%, rgba(0,0,0,.06), transparent 60%),
     radial-gradient(900px 380px at 15% 40%, rgba(0,0,0,.06), transparent 60%),
     radial-gradient(900px 380px at 85% 40%, rgba(0,0,0,.06), transparent 60%);
@@ -75,7 +68,6 @@ body::after {
   opacity: .6;
 }
 
-/* Header / Navbar */
 .site-header {
   position: fixed;
   top: 0;
@@ -143,7 +135,6 @@ body::after {
 .nav__cta { text-decoration: none; background: var(--ink); color: var(--cta-ink); border-radius: 999px; padding: 10px 16px; font-weight: 600; font-size: 14px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.15), 0 1px 0 rgba(0,0,0,.12); }
 .nav__cta:hover { opacity: .9; }
 
-/* Content spacer to reveal background */
 .content { min-height: 100vh; padding-top: 64px; }
 .hero-viewport { position: relative; min-height: 100vh; overflow: hidden; }
 .hero { padding-bottom: var(--hero-bottom-pad); }
@@ -153,7 +144,6 @@ body::after {
   .nav__links { display: none; }
 }
 
-/* Spline background helpers (manual sizing here) */
 .spline-bg {
   position: absolute;
   left: var(--spline-offset-x);
@@ -177,7 +167,6 @@ body::after {
   border: 0;
 }
 
-/* Full-viewport option */
 .spline-full {
   left: 50%;
   top: 0;
@@ -187,7 +176,6 @@ body::after {
   border-radius: 0;
 }
 
-/* Badge over Spline (top-right) */
 .hero-badge {
   position: absolute;
   right: 11px;
@@ -204,7 +192,6 @@ body::after {
   letter-spacing: .02em;
 }
 
-/* Drag hint over Spline (top-right) */
 .hero-drag-hint {
   position: absolute;
   top: 20px;
@@ -221,11 +208,10 @@ body::after {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Hero CTA over Spline */
 .hero-cta-row {
   position: absolute;
-  left: 98px; /* align with hero-badge spacing */
-  bottom: 230px; /* same baseline as hero-badge */
+  left: 98px;
+  bottom: 230px;
   top: auto;
   right: auto;
   display: block;
@@ -257,7 +243,6 @@ body::after {
 
 
 
-/* Hide carousel on desktop */
 .carousel-wrap-mobile { display: none; }
 
 
@@ -267,11 +252,9 @@ body::after {
   50% { opacity: 0.8; }
 }
 
-/* Desktop navbar styling */
 .nav__brand-name { display: inline-block; }
 .nav__mobile { display: none; }
 
-/* Hamburger Menu Styles */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -393,7 +376,6 @@ body::after {
   background-color: #333;
 }
 
-/* ReactBits Carousel CSS */
 .carousel-container {
   position: relative;
   overflow: hidden;
@@ -530,7 +512,6 @@ body::after {
   background-color: #555;
 }
 
-/* ReactBits CardSwap overrides (from provided CSS) */
 .card-swap-container {
   position: absolute;
   bottom: 0;
@@ -559,7 +540,6 @@ body::after {
   }
 }
 
-/* Visible content container inside each Card */
 .card-inner {
   width: 100%;
   height: 100%;
@@ -570,7 +550,7 @@ body::after {
   background: #ffffff;
   color: var(--ink);
   border-radius: 12px;
-  border: 2px solid #0d0d0d; /* black border around card */
+  border: 2px solid #0d0d0d;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   transition: transform .2s ease, box-shadow .2s ease;
   padding: 6px 0;
@@ -578,14 +558,13 @@ body::after {
 .card-inner h3 { margin: 0 0 8px; }
 .card-inner p { margin: 0; opacity: 0.8; }
 
-/* Card header with divider line */
 .card-header {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 12px 16px;
-  border-bottom: 1px solid #0d0d0d; /* differentiating line */
+  border-bottom: 1px solid #0d0d0d;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -596,7 +575,6 @@ body::after {
 .card-icon { font-size: 14px; margin-right: 6px; }
 .card-inner:hover { transform: translateY(-2px) scale(1.01); box-shadow: 0 14px 36px rgba(0,0,0,0.12); }
 
-/* Root mount sizing for CardSwap area */
 .card-swap-root {
   position: absolute;
   bottom: 0;
@@ -606,17 +584,16 @@ body::after {
   overflow: visible;
 }
 
-/* Feature framed section */
 .feature-frame {
   position: relative;
   border: 4px solid #0d0d0d;
   border-radius: 18px;
   padding: 28px;
   display: grid;
-  grid-template-columns: 3fr 2fr; /* left wider | right cards */
+  grid-template-columns: 3fr 2fr;
   gap: 24px;
   background: rgba(255,255,255,0.35);
-  overflow: hidden; /* clip cards at the frame edge so overflow hides */
+  overflow: hidden;
 }
 .feature-hint {
   position: absolute;
@@ -630,50 +607,45 @@ body::after {
   padding: 4px 8px;
   pointer-events: none;
 }
-/* Triple guides under Pricing */
 .triple-guides-section { overflow: visible; }
 .triple-guides {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
-  align-items: end; /* keep columns bottom-aligned so scaled item grows upward */
-  overflow: visible; /* allow scaled card to extend beyond grid row height */
+  align-items: end;
+  overflow: visible;
 }
 .triple-guides .v-col {
   border: 4px solid #0d0d0d;
   border-radius: 18px;
-  background: rgba(0,0,0,0.05); /* subtle dark shade between frame and card */
-  padding: 20px; /* keep inner spacing consistent with inner ring */
+  background: rgba(0,0,0,0.05);
+  padding: 20px;
   position: relative;
   display: flex;
-  align-items: flex-end; /* keep card bases aligned */
-  overflow: visible; /* allow scaled middle card to flow upward */
+  align-items: flex-end;
+  overflow: visible;
   min-height: var(--pricing-col-min-h);
 }
 
-/* subtle inner shading ring inside the column, below the card */
 .triple-guides .v-col::before {
   content: "";
   position: absolute;
-  inset: 20px; /* match padding for concentric look */
+  inset: 20px;
   border-radius: 16px;
   box-shadow: inset 0 0 24px rgba(0,0,0,0.06);
   pointer-events: none;
 }
 
-/* Allow a column to grow without breaking flex alignment */
-/* Remove special scaling styling; keep columns uniform */
 
-/* Pricing cards inside the vertical columns */
 .pricing-card {
   position: relative;
-  z-index: 1; /* ensure above inner shade */
+  z-index: 1;
   height: auto;
   display: flex;
   flex-direction: column;
   background: #fff;
   border: 2px solid #0d0d0d;
-  border-radius: 16px; /* align with inner ring radius */
+  border-radius: 16px;
   padding: 18px;
   gap: 12px;
   width: 100%;
@@ -691,10 +663,8 @@ body::after {
 .pricing-cta.primary { background: transparent; color: #0d0d0d; }
 .pricing-card .pricing-cta:hover { background: #0d0d0d; color: #fff; transform: translateY(-1px); }
 
-/* Premium no-scale (reverted) */
 .pricing-card.scale-premium { transform: none; }
 
-/* Responsive adjustments via keyframes-driven values */
 @keyframes responsiveVars {
   0% {
     --cardswap-width: 520px;
@@ -711,7 +681,6 @@ body::after {
 }
 body { animation: responsiveVars 0s forwards; }
 
-/* Only adjust variable sizes on mobile */
 @media (max-width: 480px) {
   body { animation: responsiveVarsSmall 0s forwards; }
   @keyframes responsiveVarsSmall {
@@ -719,25 +688,20 @@ body { animation: responsiveVars 0s forwards; }
     100% { --cardswap-width: 320px; --cardswap-height: 220px; --feature-right-min-h: 360px; --cta-font-size: 20px; --spline-shift-x: 0; }
   }
 
-  /* Mobile hero: hide Spline and show text alternative */
   .spline-bg, .spline-embed { display: none !important; }
   .hero-text-mobile { display: block !important; text-align: left; padding: 80px 20px 0; }
   .hero-text-mobile h1 { font-size: 48px; line-height: 1.05; margin: 0 0 14px 0; }
   .hero-text-mobile p { font-family: 'Goldman', cursive; font-size: 20px; margin: 0; }
   
-  /* Mobile navbar styling */
   .nav__brand-name { display: inline-block !important; }
   .nav__center { display: none; }
   .nav__right { display: none; }
   .nav__mobile { display: block; }
   
-  /* Hide Made with PORT.ai on mobile */
   .hero-badge { display: none !important; }
   
-  /* Hide desktop CTA on mobile - we have a mobile-specific one */
   .hero > .hero-cta-row { display: none !important; }
   
-  /* Mobile carousel styling */
   .carousel-wrap-mobile { display: block !important; margin-top: 48px; }
   .carousel-container { 
     background: #f8f8f8; 
@@ -752,7 +716,6 @@ body { animation: responsiveVars 0s forwards; }
     box-sizing: border-box;
   }
   
-  /* Mobile CTA button - positioned below carousel */
   .hero-cta-row {
     position: static !important;
     text-align: center;
@@ -889,7 +852,6 @@ body { animation: responsiveVars 0s forwards; }
   }
 }
 
-  /* Responsive typography and grid tweaks (apply only on mobile) */
   @media (max-width: 480px) {
     .feature-frame { 
       grid-template-columns: 1fr; 
@@ -943,7 +905,6 @@ body { animation: responsiveVars 0s forwards; }
   }
 }
 
-/* Pricing section */
 .pricing-section {
   padding: 46px 20px;
   text-align: center;
@@ -954,7 +915,6 @@ body { animation: responsiveVars 0s forwards; }
 }
 .pricing-sub { margin: 8px 0 0; color: #4b4b4b; font-weight: 600; }
 
-/* Waitlist */
 .waitlist-frame {
   position: relative;
   border: 4px solid #0d0d0d;
@@ -1001,7 +961,6 @@ body { animation: responsiveVars 0s forwards; }
   .waitlist-form { grid-template-columns: 1fr; }
 }
 
-/* Footer */
 .site-footer {
   border-top: 4px solid #0d0d0d;
   background: rgba(255,255,255,0.35);

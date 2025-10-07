@@ -4,14 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <!-- SEO Meta Tags -->
     <title>PORT.ai - AI-Powered Portfolio Builder | Create Professional Portfolios Instantly</title>
     <meta name="description" content="Create stunning professional portfolios in minutes with PORT.ai's cutting-edge AI technology. Smart templates, one-click customization, and seamless export options for students, professionals, and teams." />
     <meta name="keywords" content="portfolio builder, AI portfolio, professional portfolio, portfolio templates, AI design, career portfolio, freelancer portfolio, student portfolio, portfolio generator" />
     <meta name="author" content="PORT.ai Team" />
     <meta name="robots" content="index, follow" />
     
-    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="PORT.ai - AI-Powered Portfolio Builder" />
     <meta property="og:description" content="Create stunning professional portfolios in minutes with cutting-edge AI technology. Smart templates, one-click customization, and seamless export options." />
     <meta property="og:type" content="website" />
@@ -19,18 +17,15 @@
     <meta property="og:image" content="https://port-ai.netlify.app/og-image.jpg" />
     <meta property="og:site_name" content="PORT.ai" />
     
-    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="PORT.ai - AI-Powered Portfolio Builder" />
     <meta name="twitter:description" content="Create stunning professional portfolios in minutes with cutting-edge AI technology." />
     <meta name="twitter:image" content="https://port-ai.netlify.app/og-image.jpg" />
     
-    <!-- Additional SEO -->
     <meta name="theme-color" content="#000000" />
     <meta name="msapplication-TileColor" content="#000000" />
     <link rel="canonical" href="https://port-ai.netlify.app" />
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -42,7 +37,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
-    <!-- Tailwind CDN (used selectively) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
   </head>
@@ -51,7 +45,6 @@
       <nav class="nav">
         <div class="nav__left">
           <a class="brand" href="#" aria-label="Home">
-            <!-- Simple blocky cross logo to echo the reference -->
             <svg class="brand__mark" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
               <rect x="4" y="9" width="16" height="6" rx="2"/>
               <rect x="9" y="4" width="6" height="16" rx="2"/>
@@ -72,7 +65,6 @@
           <a class="nav__cta" href="#">Join Us</a>
         </div>
 
-        <!-- Mobile Hamburger Menu -->
         <div class="nav__mobile">
           <button class="hamburger" id="hamburger" aria-label="Toggle menu">
             <span class="hamburger__line"></span>
@@ -104,18 +96,14 @@
 
     <main class="content">
       <section class="hero hero-viewport" id="hero">
-        <!-- <div class="relative z-[1] max-w-[1200px] mx-auto px-5 md:px-6 lg:px-8 pt-16 md:pt-24" style="min-height: 200px;"> -->
-          <!-- Free-position Spline layer; adjust size/position in styles.css vars -->
           <div class="spline-bg spline-full" style="z-index: 2;">
             
             <iframe src="https://my.spline.design/draganddroplandingpage-Uc3a2qfcuBFqUkZEFUsFIUcy/" class="spline-embed"></iframe>
           </div>
-          <!-- Mobile-only hero text (hidden by default, shown via responsive CSS) -->
           <div class="hero-text-mobile" style="display:none;">
             <h1 class="russo">From Skills<br/>to Showcase</h1>
             <p class="goldman">AI makes it Seamless</p>
             
-            <!-- Mobile-only Static Carousel -->
             <div class="carousel-wrap-mobile">
               <div class="carousel-container">
                 <div class="carousel-track-wrapper">
@@ -208,15 +196,12 @@
               </div>
             </div>
             
-            <!-- Mobile CTA Button -->
             <div class="hero-cta-row">
               <a href="#waitlist" class="hero-cta russo">JOIN WAITLIST</a>
             </div>
           </div>
           
           
-        <!-- </div> -->
-        <!-- Hero CTA over Spline (free over the whole hero viewport) -->
         <div class="hero-cta-row">
           <a href="#waitlist" class="hero-cta russo">JOIN WAITLIST</a>
         </div>
@@ -224,7 +209,6 @@
         <div class="hero-drag-hint">🖱️ Drag to explore</div>
       </section>
       
-      <!-- Next sections appear as you scroll past the full-viewport Spline hero -->
       <section id="features" class="relative">
         <div class="max-w-[1200px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-24">
           <div class="feature-frame">
@@ -356,7 +340,6 @@
         </div>
       </footer>
     </main>
-    <!-- React + GSAP for CardSwap demo in Features -->
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -556,7 +539,6 @@
 
     </script>
     
-    <!-- Carousel Slider JavaScript -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const carouselTrack = document.querySelector('.carousel-track');
@@ -569,19 +551,16 @@
         let currentIndex = 0;
         const maxIndex = carouselItems.length - 1;
         
-        // Update carousel position - simple slide
         function updateCarousel() {
-          const translateX = -currentIndex * 20; // 20% per slide (100% / 5 cards)
+          const translateX = -currentIndex * 20;
           carouselTrack.style.transform = `translateX(${translateX}%)`;
           
-          // Update indicators
           indicators.forEach((indicator, index) => {
             indicator.classList.toggle('active', index === currentIndex);
             indicator.style.transform = index === currentIndex ? 'scale(1.2)' : 'scale(1)';
           });
         }
         
-        // Go to specific slide
         function goToSlide(index) {
           currentIndex = Math.max(0, Math.min(index, maxIndex));
           updateCarousel();
@@ -720,14 +699,12 @@
       });
     </script>
     
-    <!-- EmailJS (browser SDK) -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-      // EmailJS configuration
       const EMAILJS_PUBLIC_KEY = 'f0ukabTpk6PNYIhcG';
       const EMAILJS_SERVICE_ID = 'service_4su0cyi';
-      const ADMIN_TEMPLATE_ID = 'template_lp5xjg7'; // Template for admin notification
-      const WELCOME_TEMPLATE_ID = 'template_welcome_user'; // Template for user welcome email
+      const ADMIN_TEMPLATE_ID = 'template_lp5xjg7';
+      const WELCOME_TEMPLATE_ID = 'template_welcome_user';
 
       if (window.emailjs) {
         emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
@@ -744,10 +721,8 @@
           const formData = new FormData(waitlistForm);
           const params = Object.fromEntries(formData.entries());
           
-          // Debug: Log the form data
           console.log('Form data:', params);
           
-          // Validate required fields
           if (!params.user_email || !params.user_email.trim()) {
             waitlistStatus.textContent = 'Please enter a valid email address.';
             waitlistStatus.style.color = '#991b1b';
@@ -761,7 +736,6 @@
               return;
             }
 
-            // Send admin notification email (simple format)
             const adminEmailParams = {
               email: 'contact.portai.business@gmail.com',
               from_name: 'PORT.ai Waitlist',
@@ -770,7 +744,6 @@
               message: `Email: ${params.user_email}\nSuggestion: ${params.message || 'No suggestion provided'}\nTimestamp: ${new Date().toLocaleString()}`
             };
 
-            // Send welcome email to user (using your template)
             const welcomeEmailParams = {
               email: params.user_email,
               from_name: 'PORT.ai Team',
@@ -779,17 +752,14 @@
               company_email: 'contact.portai.business@gmail.com'
             };
             
-            // Debug: Log email parameters
             console.log('Admin email params:', adminEmailParams);
             console.log('Welcome email params:', welcomeEmailParams);
 
-            // Send both emails
             await Promise.all([
               emailjs.send(EMAILJS_SERVICE_ID, ADMIN_TEMPLATE_ID, adminEmailParams),
               emailjs.send(EMAILJS_SERVICE_ID, WELCOME_TEMPLATE_ID, welcomeEmailParams)
             ]);
 
-            // Disable form and update button
             const submitButton = waitlistForm.querySelector('button[type="submit"]');
             if (submitButton) {
               submitButton.textContent = 'Submitted';
@@ -799,7 +769,6 @@
               submitButton.disabled = true;
             }
             
-            // Hide status message
             waitlistStatus.textContent = '';
             waitlistForm.reset();
           } catch (err) {
@@ -812,7 +781,6 @@
       const yel = document.getElementById('year-copy');
       if (yel) { yel.textContent = new Date().getFullYear(); }
 
-      // Hamburger menu functionality
       const hamburger = document.getElementById('hamburger');
       const mobileMenu = document.getElementById('mobile-menu');
       const mobileMenuClose = document.getElementById('mobile-menu-close');
@@ -829,17 +797,14 @@
           mobileMenu.classList.toggle('active');
         });
 
-        // Close menu when clicking close button
         if (mobileMenuClose) {
           mobileMenuClose.addEventListener('click', closeMenu);
         }
 
-        // Close menu when clicking on links
         mobileMenuLinks.forEach(link => {
           link.addEventListener('click', closeMenu);
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
           if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
             closeMenu();
